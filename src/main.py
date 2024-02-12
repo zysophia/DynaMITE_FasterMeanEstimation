@@ -9,9 +9,11 @@ from mcmcChain import *
 
 def run_dynamite_on_hypercube(n, k, eps, delta):
     Lambda = 1-1/n
-    R = k-1
-    modValue = lambda x: sum(x)%k
-    print(f"n={n}, k={k}, func = sum(x)%k, eps = {eps}, delta = {delta}")
+    # R = k-1
+    # modValue = lambda x: sum(x)%k
+    R = 1
+    modValue = lambda x: int(sum(x)%(2*k) < k)
+    print(f"n={n}, k={k}, func = sum(x)%{2*k}<{k}, eps = {eps}, delta = {delta}")
     chain1 = HcubeChain(np.random.randint(0,2,n), n)
     chain2 = HcubeChain(np.random.randint(0,2,n), n)
     dynamiteHcube = Dynamite(chain1 = chain1, chain2 = chain2, Lambda = Lambda, func = modValue, R = R, eps = eps, delta = delta)
@@ -19,16 +21,16 @@ def run_dynamite_on_hypercube(n, k, eps, delta):
 
 if __name__=="__main__":
 
-    log_filename = "data/output_20240210_04.log"
+    log_filename = "data/output_20240211_04.log"
     os.makedirs(os.path.dirname(log_filename), exist_ok=True)
     file_handler = logging.FileHandler(log_filename, mode="a", encoding=None, delay=False)
     logging.basicConfig(handlers=[file_handler], level=logging.DEBUG)
     
     # n_list = [5, 8, 10, 15, 20, 30]
-    n_list = [5, 10, 20]
+    n_list = [16, 32]
     # k_list = [2, 3, 4, 5, 10]
-    k_list = [2, 5, 10]
-    # eps_list = [0.1, 0.05, 0.025, 0.0125, 0.00625]
+    k_list = [1, 4, 8, 16]
+    # eps_list = [0.025]
     eps_list = [0.1, 0.05, 0.02, 0.01, 0.005]
     delta_list = [0.05]
 

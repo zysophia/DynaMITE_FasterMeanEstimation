@@ -4,9 +4,9 @@ from collections import Counter
 
 if __name__ == "__main__":
 
-    log_files = ["data/output_20240210_01.log", "data/output_20240210_02.log", \
-                 "data/output_20240210_03.log", "data/output_20240210_04.log"]
-    output_csv = "data/output_20240210_02.csv"
+    log_files = ["data/output_20240211_01.log", "data/output_20240211_02.log", \
+                 "data/output_20240211_03.log", "data/output_20240211_04.log"]
+    output_csv = "data/output_20240211_01.csv"
 
     datalist = []
     for log_file in log_files:
