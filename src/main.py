@@ -19,15 +19,17 @@ def run_dynamite_on_hypercube(n, k, eps, delta):
 
 if __name__=="__main__":
 
-    log_filename = "data/output_20240210_02.log"
+    log_filename = "data/output_20240210_04.log"
     os.makedirs(os.path.dirname(log_filename), exist_ok=True)
     file_handler = logging.FileHandler(log_filename, mode="a", encoding=None, delay=False)
     logging.basicConfig(handlers=[file_handler], level=logging.DEBUG)
     
     # n_list = [5, 8, 10, 15, 20, 30]
     n_list = [5, 10, 20]
+    # k_list = [2, 3, 4, 5, 10]
     k_list = [2, 5, 10]
-    eps_list = [0.1, 0.05, 0.025, 0.0125, 0.00625]
+    # eps_list = [0.1, 0.05, 0.025, 0.0125, 0.00625]
+    eps_list = [0.1, 0.05, 0.02, 0.01, 0.005]
     delta_list = [0.05]
 
     for eps in eps_list:
