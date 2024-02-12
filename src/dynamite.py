@@ -111,7 +111,7 @@ class Dynamite():
 if __name__ == '__main__':
 
     def run():
-        n = 10
+        n = 30
         k = 2
         eps = 0.005
         delta = 0.05
